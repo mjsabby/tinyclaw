@@ -1,0 +1,20 @@
+[Unit]
+Description=tinyclaw — LLM CLIs and shell over WhatsApp
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=muks
+WorkingDirectory=/home/muks/tinyclaw
+ExecStart=/usr/bin/env node /home/muks/tinyclaw/dist/index.js
+Restart=always
+RestartSec=5
+# The agents need a real login session's PATH to find claude/codex/copilot.
+Environment=PATH=/home/muks/.local/bin:/usr/local/bin:/usr/bin:/bin
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=tinyclaw
+
+[Install]
+WantedBy=default.target

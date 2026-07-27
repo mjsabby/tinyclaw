@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+# WhatsApp device credentials — anyone with these can act as your account.
+.auth/
+.state/
+*.log
